@@ -1,10 +1,11 @@
 const axios = require("axios");
 const formatUser = require("../utils/formatUser");
 const store = require("../data/contactsStore");
+const user = require("./user.json");
 
 const loadContacts = async () => {
-  const res = await axios.get("https://randomuser.me/api/?results=35");
-  const formatted = res.data.results.map(formatUser);
+  const res = { data: { results: user } };
+  const formatted = res.data.map(formatUser);
   store.setContacts(formatted);
 };
 
