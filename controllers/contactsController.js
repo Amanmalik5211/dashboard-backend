@@ -5,7 +5,7 @@ const user = require("./user.json");
 
 const loadContacts = async () => {
   const res = { data: { results: user } };
-  const formatted = res.data.map(formatUser);
+  const formatted = res.data.results.map(formatUser);
   store.setContacts(formatted);
 };
 
